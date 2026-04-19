@@ -16,9 +16,11 @@
     <nav class="navbar">
         <div class="logo">Nova<span>Viajes</span></div>
         <ul class="nav-links">
-            <li><a href="#destinos">Destinos</a></li>
-            <li><a href="#experiencias">Experiencias</a></li>
-            <li><a href="#contacto">Contacto</a></li>
+            <li><a href="index.html#destinos">Destinos</a></li>
+            <li><a href="index.html#experiencias">Experiencias</a></li>
+            <li><a href="servicios.html">Servicios</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="index.html#contacto">Contacto</a></li>
         </ul>
         <a href="#contacto" class="btn-primary magnetic-btn">Empezar viaje</a>
     </nav>
@@ -43,7 +45,7 @@
                     <label>Fechas</label>
                     <input type="text" id="datePicker" placeholder="Añadir fechas">
                 </div>
-                <button class="search-btn">Buscar</button>
+                <button class="search-btn" id="searchTripBtn">Buscar</button>
             </div>
         </div>
     </header>
@@ -112,9 +114,76 @@
                 <p>Tranquilidad total estés donde estés, siempre habrá alguien para guiarte.</p>
             </div>
         </div>
+
+        <div class="testimonials-header scroll-reveal" style="margin-top: 8rem; text-align: center;">
+            <h2>Lo que dicen nuestros clientes</h2>
+            <p>Historias reales de aventureros satisfechos.</p>
+        </div>
+        <div class="testimonials-grid">
+            <div class="testimonial-card scroll-reveal">
+                <div class="stars">★★★★★</div>
+                <p>"La atención al detalle en nuestro viaje a Santorini fue irreal. Las suites superaron nuestras más altas expectativas y tuvimos un conserje 24/7. NovaViajes cambió nuestra forma de ver el mundo."</p>
+                <div class="user-info">
+                    <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Client">
+                    <div>
+                        <h4>Elena M.</h4>
+                        <span>Viaje: Santorini, Grecia</span>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card scroll-reveal" style="transition-delay: 150ms;">
+                <div class="stars">★★★★★</div>
+                <p>"De principio a fin, la organización en París fue sublime. Entradas VIP al Louvre y una cena reservada bajo la Torre Eiffel sin tener que preocuparnos de absolutamente nada."</p>
+                <div class="user-info">
+                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Client">
+                    <div>
+                        <h4>Carlos P.</h4>
+                        <span>Viaje: París, Francia</span>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card scroll-reveal" style="transition-delay: 300ms;">
+                <div class="stars">★★★★★</div>
+                <p>"El viaje fotográfico por los templos de Bali nos ofreció una perspectiva íntima de la cultura local, combinado con resorts que parecían un jardín del paraíso."</p>
+                <div class="user-info">
+                    <img src="https://randomuser.me/api/portraits/men/85.jpg" alt="Client">
+                    <div>
+                        <h4>David L.</h4>
+                        <span>Viaje: Bali, Indonesia</span>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <footer id="contacto" class="footer">
+    <section id="contacto" class="contact-section section-padding">
+        <div class="contact-container scroll-reveal">
+            <div class="contact-text">
+                <h2>Comienza a diseñar tu viaje</h2>
+                <p>Déjanos tus datos y uno de nuestros diseñadores VIP te contactará en menos de 24 horas.</p>
+            </div>
+            <form class="contact-form">
+                <div class="form-row">
+                    <input type="text" placeholder="Nombre completo" required>
+                    <input type="email" placeholder="Correo electrónico" required>
+                </div>
+                <div class="form-row">
+                    <input type="tel" placeholder="Teléfono" required>
+                    <select required>
+                        <option value="" disabled selected>Destino de interés</option>
+                        <option>Bali, Indonesia</option>
+                        <option>París, Francia</option>
+                        <option>Santorini, Grecia</option>
+                        <option>Me gustaría que me asesoren</option>
+                    </select>
+                </div>
+                <textarea rows="4" placeholder="Cuéntanos más sobre el viaje de tus sueños (opcional)"></textarea>
+                <button type="submit" class="btn-primary magnetic-btn" style="width:100%; border:none; margin-top:0.5rem;">Enviar Solicitud</button>
+            </form>
+        </div>
+    </section>
+
+    <footer class="footer">
         <div class="footer-content">
             <div class="footer-brand scroll-reveal">
                 <h2>Nova<span>Viajes</span></h2>

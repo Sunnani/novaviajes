@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog de NovaViajes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo"><a href="index.html">Nova<span>Viajes</span></a></div>
+        <ul class="nav-links">
+            <li><a href="index.html#destinos">Destinos</a></li>
+            <li><a href="index.html#experiencias">Experiencias</a></li>
+            <li><a href="servicios.html">Servicios</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="index.html#contacto">Contacto</a></li>
+        </ul>
+        <a href="index.html#contacto" class="btn-primary magnetic-btn">Empezar viaje</a>
+    </nav>
+
+    <header class="hero" style="height: 50vh;">
+        <div class="hero-bg" style="background-image: url('https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&fit=crop&w=2000&q=80')"></div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content" style="padding-top: 5rem;">
+            <h1 class="fade-up" style="font-size: 4rem;">Diario de Exploradores</h1>
+            <p class="fade-up delay-1" style="font-size: 1.2rem;">Crónicas, guías secretas y las últimas tendencias del mundo del turismo premium.</p>
+        </div>
+    </header>
+
+    <section class="section-padding" style="max-width: 1200px; margin: 0 auto;">
+        <div class="destinations-grid">
+            <div class="dest-card scroll-reveal">
+                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1596436889106-be35e843f974?auto=format&fit=crop&w=800&q=80')"></div>
+                <div class="card-content">
+                    <div class="card-badge">Tendencias</div>
+                    <h3 style="font-size:1.5rem;">Top 5 Resorts Ecológicos 2026</h3>
+                    <p>Descubre los hoteles que dominan la vanguardia del lujo sustentable en África y Asia.</p>
+                    <a href="#" class="explore-link">Leer artículo <span>→</span></a>
+                </div>
+            </div>
+            <div class="dest-card scroll-reveal delay-1">
+                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=800&q=80')"></div>
+                <div class="card-content">
+                    <div class="card-badge">Cultura</div>
+                    <h3 style="font-size:1.5rem;">El arte del Omakase en Tokyo</h3>
+                    <p>Una breve guía para entender y respetar la máxima expresión culinaria japonesa al cenar.</p>
+                    <a href="#" class="explore-link">Leer artículo <span>→</span></a>
+                </div>
+            </div>
+            <div class="dest-card scroll-reveal delay-2">
+                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=800&q=80')"></div>
+                <div class="card-content">
+                    <div class="card-badge">Guías</div>
+                    <h3 style="font-size:1.5rem;">Cápsula de Ropa de Viaje</h3>
+                    <p>Cómo empacar ropa de firma inteligentemente para cualquier expedición alrededor del globo.</p>
+                    <a href="#" class="explore-link">Leer artículo <span>→</span></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Includes contact form -->
+    <section id="contacto" class="contact-section section-padding" style="background: rgba(255,255,255,0.02);">
+        <div class="contact-container scroll-reveal" style="border:none; box-shadow:none;">
+            <div class="contact-text">
+                <h2>Comienza a diseñar tu viaje</h2>
+                <p>Déjanos tus datos y uno de nuestros diseñadores VIP te contactará en menos de 24 horas.</p>
+            </div>
+            <form class="contact-form">
+                <div class="form-row">
+                    <input type="text" placeholder="Nombre completo" required>
+                    <input type="email" placeholder="Correo electrónico" required>
+                </div>
+                <div class="form-row">
+                    <input type="tel" placeholder="Teléfono" required>
+                    <select required>
+                        <option value="" disabled selected>Destino de interés</option>
+                        <option>Bali, Indonesia</option>
+                        <option>París, Francia</option>
+                        <option>Santorini, Grecia</option>
+                        <option>Me gustaría que me asesoren</option>
+                    </select>
+                </div>
+                <textarea rows="4" placeholder="¿Cómo imaginas tu escapada perfecta?"></textarea>
+                <button type="submit" class="btn-primary magnetic-btn" style="width:100%; border:none; margin-top:0.5rem; padding: 1.2rem; font-size:1.1rem;">Enviar Solicitud</button>
+            </form>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-bottom">
+            <p>&copy; 2026 NovaViajes. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+    <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servicios Exclusivos | NovaViajes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo"><a href="index.html">Nova<span>Viajes</span></a></div>
+        <ul class="nav-links">
+            <li><a href="index.html#destinos">Destinos</a></li>
+            <li><a href="index.html#experiencias">Experiencias</a></li>
+            <li><a href="servicios.html">Servicios</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+        </ul>
+        <a href="#contacto" class="btn-primary magnetic-btn">Empezar viaje</a>
+    </nav>
+
+    <header class="hero" style="height: 60vh;">
+        <div class="hero-bg" style="background-image: url('https://images.unsplash.com/photo-1544644181-1484b3fdfc62?auto=format&fit=crop&w=2000&q=80')"></div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content" style="padding-top: 5rem;">
+            <h1 class="fade-up" style="font-size: 4rem;">Nuestra Excelencia</h1>
+            <p class="fade-up delay-1" style="font-size: 1.2rem;">Más allá de un viaje: una curaduría integral de lujo para aquellos que exigen lo extraordinario.</p>
+        </div>
+    </header>
+
+    <section class="features section-padding" style="padding-top: 6rem;">
+        <div class="features-flex">
+            <div class="feature-item scroll-reveal">
+                <div class="feature-icon">✈️</div>
+                <h4>Aviación Privada</h4>
+                <p>Coordinamos vuelos charter en Jets Privados internacionales y helicópteros para traslados internos sin fricción y con seguridad máxima.</p>
+            </div>
+            <div class="feature-item scroll-reveal delay-1">
+                <div class="feature-icon">🛎️</div>
+                <h4>Conserjería 24/7</h4>
+                <p>Tu asistente personal está disponible en cualquier zona horaria para resolver imprevistos, desde reservas urgentes hasta sorpresas excepcionales.</p>
+            </div>
+            <div class="feature-item scroll-reveal delay-2">
+                <div class="feature-icon">🏰</div>
+                <h4>Accesos Cerrados</h4>
+                <p>Nuestras alianzas nos permiten abrir las puertas de palacios, museos y residencias que oficialmente están blindadas o cerradas al público general.</p>
+            </div>
+            <div class="feature-item scroll-reveal">
+                <div class="feature-icon">🥂</div>
+                <h4>Gastronomía Inmersiva</h4>
+                <p>Conexiones directas con los mejores chefs con estrellas Michelin para separar mesas que normalmente requieren años de anticipación.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Includes contact form -->
+    <section id="contacto" class="contact-section section-padding" style="background: rgba(255,255,255,0.02);">
+        <div class="contact-container scroll-reveal" style="border:none; box-shadow:none;">
+            <div class="contact-text">
+                <h2>¿Hablamos de tu próxima aventura?</h2>
+                <p>Nuestros Travel Designers están a tu entera disposición para crear un servicio a tu altura.</p>
+            </div>
+            <form class="contact-form">
+                <div class="form-row">
+                    <input type="text" placeholder="Nombre completo" required>
+                    <input type="email" placeholder="Correo electrónico" required>
+                </div>
+                <div class="form-row">
+                    <input type="tel" placeholder="Teléfono" required>
+                    <select required>
+                        <option value="" disabled selected>Servicio de interés</option>
+                        <option>Organización de luna de miel</option>
+                        <option>Viajes Familiares VIP</option>
+                        <option>Jet Charter Privado</option>
+                        <option>Retiros Corporativos</option>
+                    </select>
+                </div>
+                <textarea rows="4" placeholder="¿En qué más te podemos asistir?"></textarea>
+                <button type="submit" class="btn-primary magnetic-btn" style="width:100%; border:none; margin-top: 1rem; padding: 1.2rem; font-size:1.1rem;">Agendar Entrevista</button>
+            </form>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-bottom">
+            <p>&copy; 2026 NovaViajes. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+    <script src="app.js"></script>
+</body>
+</html>

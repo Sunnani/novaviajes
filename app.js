@@ -89,3 +89,20 @@ if(destinoInput && destinoDropdown) {
         destinoDropdown.classList.remove('active');
     });
 }
+
+// Search Routing
+const searchTripBtn = document.getElementById('searchTripBtn');
+if (searchTripBtn) {
+    searchTripBtn.addEventListener('click', () => {
+        const destino = destinoInput ? destinoInput.value : '';
+        if (destino.includes('Bali')) {
+            window.location.href = 'bali.html';
+        } else if (destino.includes('París') || destino.includes('Paris')) {
+            window.location.href = 'paris.html';
+        } else if (destino.includes('Santorini')) {
+            window.location.href = 'santorini.html';
+        } else {
+            alert('Por favor selecciona un destino del desplegable para buscar el itinerario.');
+        }
+    });
+}
