@@ -56,3 +56,36 @@ magneticBtns.forEach(btn => {
         btn.style.transition = 'transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
     });
 });
+
+// Flatpickr initialization
+flatpickr("#datePicker", {
+    mode: "range",
+    minDate: "today",
+    dateFormat: "Y-m-d",
+    altInput: true,
+    altFormat: "j M, Y",
+    locale: "es",
+    showMonths: 1
+});
+
+// Dropdown Destino Logic
+const destinoInput = document.getElementById('destinoInput');
+const destinoDropdown = document.getElementById('destinoDropdown');
+
+if(destinoInput && destinoDropdown) {
+    destinoInput.addEventListener('click', (e) => {
+        e.stopPropagation();
+        destinoDropdown.classList.toggle('active');
+    });
+
+    destinoDropdown.querySelectorAll('li').forEach(item => {
+        item.addEventListener('click', () => {
+            destinoInput.value = item.textContent;
+            destinoDropdown.classList.remove('active');
+        });
+    });
+
+    document.addEventListener('click', () => {
+        destinoDropdown.classList.remove('active');
+    });
+}

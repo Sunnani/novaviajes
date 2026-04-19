@@ -8,6 +8,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/themes/dark.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -28,13 +30,18 @@
             <h1 class="fade-up">Descubre lo extraordinario</h1>
             <p class="fade-up delay-1">Diseñamos viajes a medida para los espíritus más aventureros. Siente, explora y vive sin límites.</p>
             <div class="search-glass fade-up delay-2">
-                <div class="input-group">
+                <div class="input-group dropdown-wrapper">
                     <label>Destino</label>
-                    <input type="text" placeholder="¿A dónde sueñas ir?">
+                    <input type="text" id="destinoInput" placeholder="¿A dónde sueñas ir?" readonly>
+                    <ul class="custom-dropdown" id="destinoDropdown">
+                        <li>Bali, Indonesia</li>
+                        <li>París, Francia</li>
+                        <li>Santorini, Grecia</li>
+                    </ul>
                 </div>
                 <div class="input-group">
                     <label>Fechas</label>
-                    <input type="text" placeholder="Añadir fechas">
+                    <input type="text" id="datePicker" placeholder="Añadir fechas">
                 </div>
                 <button class="search-btn">Buscar</button>
             </div>
@@ -134,6 +141,8 @@
         </div>
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/es.js"></script>
     <script src="app.js"></script>
 </body>
 </html>
