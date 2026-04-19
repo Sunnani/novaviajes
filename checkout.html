@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout | FreeTravel</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .checkout-grid { display: grid; grid-template-columns: 1.5fr 1fr; gap: 4rem; padding-top: 8rem; max-width: 1200px; margin: 0 auto; min-height: 80vh; }
+        .checkout-form { background: rgba(255,255,255,0.02); padding: 3rem; border-radius: 24px; border: 1px solid rgba(255,255,255,0.05); }
+        .checkout-form h2 { color: var(--accent-1); margin-bottom: 2rem; font-size: 2rem; }
+        .input-group { margin-bottom: 1.5rem; }
+        .input-group label { display: block; margin-bottom: 0.5rem; color: var(--text-muted); font-size: 0.9rem; }
+        .input-group input, .input-group select { width: 100%; padding: 1rem; background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; color: #fff; font-family: var(--font-primary); font-size: 1rem; box-sizing: border-box; }
+        .row { display: flex; gap: 1rem; }
+        .checkout-summary { background: rgba(0,242,254,0.05); padding: 3rem; border-radius: 24px; border: 1px solid rgba(0,242,254,0.2); backdrop-filter: blur(10px); height: fit-content; }
+        .checkout-summary h2 { margin-top: 0; margin-bottom: 2rem; font-size: 1.5rem; }
+        .summary-item { display: flex; justify-content: space-between; margin-bottom: 1rem; padding-bottom: 1rem; border-bottom: 1px solid rgba(255,255,255,0.1); }
+        .total-row { display: flex; justify-content: space-between; font-size: 1.5rem; font-weight: bold; color: var(--accent-1); margin-top: 2rem; margin-bottom: 2rem; }
+        
+        #paymentSuccess { display: none; text-align: center; padding: 4rem 1rem; margin-top: 5rem; }
+        #paymentSuccess h1 { color: #22c55e; font-size: 3rem; margin-bottom: 1rem; }
+        
+        @media (max-width: 900px) { .checkout-grid { grid-template-columns: 1fr; gap: 2rem; } .row { flex-direction:column; gap:0;} }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo"><a href="index.html" style="color:var(--text-color);text-decoration:none;">Free<span>Travel</span></a></div>
+        <div class="nav-actions" style="margin-left:auto;">
+            <ul class="nav-links" style="display:flex;">
+                <li><a href="index.html#destinos">← Volver al Inicio</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="section-padding" id="mainCheckout">
+        <div class="checkout-grid">
+            <div class="checkout-form">
+                <h2>💳 Simulación de Pasarela</h2>
+                <form id="paymentForm">
+                    <h3>Datos del Viajero</h3>
+                    <div class="row">
+                        <div class="input-group" style="flex:1"><label>Nombre</label><input type="text" required value="Enma"></div>
+                        <div class="input-group" style="flex:1"><label>Apellido</label><input type="text" required value="Bueno"></div>
+                    </div>
+                    <div class="input-group"><label>Correo Electrónico</label><input type="email" required value="enma.vip@freetravel.com"></div>
+
+                    <h3 style="margin-top:2rem;">Pago Seguro (Encriptación Falsa)</h3>
+                    <div class="input-group"><label>Titular de la Tarjeta</label><input type="text" required></div>
+                    <div class="input-group"><label>Número de Tarjeta</label><input type="text" pattern="[0-9]{16}" placeholder="0000 0000 0000 0000" maxlength="16" required></div>
+                    <div class="row">
+                        <div class="input-group" style="flex:1"><label>Expiración</label><input type="text" placeholder="MM/YY" maxlength="5" required></div>
+                        <div class="input-group" style="flex:1"><label>CVV / CVC</label><input type="password" placeholder="***" maxlength="4" required></div>
+                    </div>
+
+                    <button type="submit" class="btn-primary magnetic-btn" style="width:100%; border:none; padding:1.5rem; font-size:1.2rem; margin-top:2rem;">Procesar Pago Seguro</button>
+                    <p style="text-align:center; color:var(--text-muted); font-size:0.8rem; margin-top:1rem;">Al procesar, usted acepta nuestros Términos y Condiciones Financieras.</p>
+                </form>
+            </div>
+
+            <div class="checkout-summary">
+                <h2>Resumen de Compra</h2>
+                <div id="checkoutItemsList"></div>
+                <div class="total-row"><span>Total Final:</span> <span id="checkoutTotal">$0 USD</span></div>
+                <p style="color:var(--text-muted); font-size:0.85rem; text-align:center;">Todas las transacciones en FreeTravel están protegidas por escudos VIP criptográficos. (Modo Simulación)</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div id="paymentSuccess" class="section-padding">
+        <div style="font-size:5rem;">🎫</div>
+        <h1>¡Pago Aprobado! ✓</h1>
+        <p style="font-size:1.2rem; margin-bottom:2rem; max-width:600px; margin-inline:auto; color:var(--text-muted);">Tu expedición VIP ha sido confirmada exitosamente. Se han enviado los folios electrónicos y pases de abordar cifrados a tu bandeja de entrada.</p>
+        <a href="index.html" class="btn-primary magnetic-btn">Regresar a la Página Principal</a>
+    </div>
+
+    <script>
+        // Load Cart Data
+        const cart = JSON.parse(localStorage.getItem('freeTravelCart')) || JSON.parse(localStorage.getItem('freeTravelCart')) || [];
+        const listEl = document.getElementById('checkoutItemsList');
+        const totalEl = document.getElementById('checkoutTotal');
+        
+        let total = 0;
+        if(cart.length === 0) {
+            listEl.innerHTML = '<p>No hay expediciones seleccionadas.</p>';
+            // Auto format cart
+            cart.push({name: "Membresía FreeTravel Elite", price: 1000, quantity: 1});
+        }
+        
+        listEl.innerHTML = cart.map(item => {
+            total += item.price * item.quantity;
+            return `<div class="summary-item">
+                <span>${item.name} (x${item.quantity})</span>
+                <span style="color:var(--accent-1);">$${(item.price * item.quantity).toLocaleString()} USD</span>
+            </div>`;
+        }).join('');
+        
+        totalEl.textContent = `$${total.toLocaleString()} USD`;
+
+        // Payment submission logic
+        document.getElementById('paymentForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const btn = e.target.querySelector('button[type="submit"]');
+            btn.innerHTML = "Validando Criptografía...";
+            
+            setTimeout(() => {
+                // Clear cart completely
+                localStorage.removeItem('freeTravelCart');
+                localStorage.removeItem('freeTravelCart'); // Backwards compatibility wipe
+                
+                // Show success screen
+                document.getElementById('mainCheckout').style.display = 'none';
+                document.getElementById('paymentSuccess').style.display = 'block';
+                window.scrollTo(0,0);
+            }, 1500);
+        });
+    </script>
+</body>
+</html>

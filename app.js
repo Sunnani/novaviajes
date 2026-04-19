@@ -138,10 +138,10 @@ const cartItemsContainer = document.getElementById('cartItems');
 const cartTotalEl = document.getElementById('cartTotal');
 const addToCartBtns = document.querySelectorAll('.add-to-cart');
 
-let cart = JSON.parse(localStorage.getItem('novaCart')) || [];
+let cart = JSON.parse(localStorage.getItem('freeTravelCart')) || [];
 
 function saveCart() {
-    localStorage.setItem('novaCart', JSON.stringify(cart));
+    localStorage.setItem('freeTravelCart', JSON.stringify(cart));
 }
 
 function updateCartUI() {
@@ -230,3 +230,8 @@ addToCartBtns.forEach(btn => {
 document.addEventListener('DOMContentLoaded', () => {
     updateCartUI();
 });
+
+const checkoutBtn = document.getElementById('checkoutBtn');
+if(checkoutBtn) {
+    checkoutBtn.addEventListener('click', () => { window.location.href = 'checkout.html'; });
+}
